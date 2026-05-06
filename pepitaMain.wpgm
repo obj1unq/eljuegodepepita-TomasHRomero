@@ -10,8 +10,14 @@ program PepitaGame {
 	game.width(10)
 	game.boardGround("fondo2.jpg")
 
-  	game.addVisual(pepita)
+    keyboard.c().onPressDo({ pepita.comer(game.uniqueCollider(pepita)) })
+
+    
+    
+  	game.addVisualCharacter(pepita)
   	game.addVisual(silvestre)
+    game.addVisual(manzana)
+    game.addVisual(alpiste)
 	game.start()
 }
 /*
