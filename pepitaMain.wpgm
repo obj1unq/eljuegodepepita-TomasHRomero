@@ -11,8 +11,8 @@ program PepitaGame {
 	game.boardGround("fondo2.jpg")
 
     keyboard.c().onPressDo({ pepita.comer(game.uniqueCollider(pepita)) })
-
     
+
     
   	game.addVisualCharacter(pepita)
   	game.addVisual(silvestre)

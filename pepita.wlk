@@ -23,8 +23,6 @@ object pepita {
 		game.removeVisual(comida)
 	}
 
-
-
 	method volar(kms) {
 		energia = energia - 10 - kms 
 	}
