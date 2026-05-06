@@ -4,17 +4,16 @@ import extras.*
 object pepita {
 
     var property position = game.at( 5, 2 )
-	var energia = 100
-//	var perseguidor = silvestre
+	var  energia = 100
+	var  property perseguidor = silvestre
 	
-	method image() = "pepita.png"
+	method image() = self.estado()
 
-//	method estado() {
-//		return if ( self.atrapada() ) "pepita-gris.png" else "pepita.png"
-//	}
+	method estado() {
+		return if ( self.atrapada() ) "pepita-gris.png" else "pepita.png"
+	}
 
-//	method atrapada() = position == perseguidor.position()
-
+	method atrapada() = position == perseguidor.position()
 
 
 	method positionX() = position.x()
