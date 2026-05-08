@@ -55,5 +55,10 @@ object pepita {
 	method caer() {
 		position = position.down(1)
 	}
+
+	method morir() {
+		game.stop()			
+	
+	}
 }
 
