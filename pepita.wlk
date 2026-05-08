@@ -11,11 +11,13 @@ object pepita {
 	method image() = self.estado()
 
 	method estado() {
-		return if ( self.atrapada() ) "pepita-gris.png" else "pepita.png"
+		return 	if ( self.atrapada() || self.cansada() ) 
+					"pepita-gris.png"
+				else 
+					"pepita.png"
 	}
 
 	method atrapada() = position == perseguidor.position()
-
 
 	method positionX() = position.x()
 
@@ -25,7 +27,7 @@ object pepita {
 	}
 
 	method volar(kms) {
-		energia = energia - 10 - kms 
+		energia = energia - ( 9 * kms )
 	}
 	
 	method energia() {
@@ -35,6 +37,8 @@ object pepita {
 	method mover(dirección) {
 		position = dirección.siguiente( position )
 	}
+
+	method cansada() = 	energia <= 0
 
 }
 
