@@ -11,7 +11,7 @@ program PepitaGame {
 	game.width(10)
 	game.boardGround("fondo2.jpg")
 
-    keyboard.c().onPressDo({ pepita.comer(game.uniqueCollider(pepita)) })
+//    keyboard.c().onPressDo({ pepita.comer(game.uniqueCollider(pepita)) }) 
     
     keyboard.up().onPressDo({ pepita.mover(arriba) })
     keyboard.down().onPressDo({ pepita.mover(abajo) })
@@ -19,6 +19,9 @@ program PepitaGame {
     keyboard.left().onPressDo({ pepita.mover(izquierda) })
     
     game.onTick(800, "gravedad", { pepita.caer() })
+    game.onCollideDo(pepita, { comida => pepita.comer(comida) })
+    game.onCollideDo(pepita, { silvestre => pepita.morir() })
+
 
   	game.addVisualCharacter(pepita)
   	game.addVisual(silvestre)
@@ -34,13 +37,10 @@ object nivel1 {
         game.clear()
         
         keyboard.x().onPressDo({ self.init() })
-        
-        keyboard.c().onPressDo({ pepita.comerAca() })
+    
 
         game.onCollideDo(pepita, { comida => pepita.comer(comida) })
-        game.onCollideDo(silvestre, { comida => pepita.morir() })
-        game.onTick(1000, "gravedad", {     })
-        
+        game.onCollideDo(silvestre, { comida => pepita.morir() })        
 
     }
 }
