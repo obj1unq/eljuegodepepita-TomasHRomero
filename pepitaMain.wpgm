@@ -18,6 +18,8 @@ program PepitaGame {
     keyboard.right().onPressDo({ pepita.mover(derecha) })
     keyboard.left().onPressDo({ pepita.mover(izquierda) })
     
+    game.onTick(800, "gravedad", { pepita.caer() })
+
   	game.addVisualCharacter(pepita)
   	game.addVisual(silvestre)
     game.addVisual(manzana)

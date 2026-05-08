@@ -38,11 +38,9 @@ object pepita {
 
 		if ( not self.sinEnergía() ) {
 
-			const nuevaPosicion =
-				dirección.siguiente(position)
+			const nuevaPosicion = dirección.siguiente(position)
 
-			const distancia =
-				position.distance(nuevaPosicion)
+			const distancia = position.distance(nuevaPosicion)
 
 			self.volar(distancia)
 
@@ -54,5 +52,8 @@ object pepita {
 
 	method sinEnergía() = energia <= 0
 
+	method caer() {
+		position = position.down(1)
+	}
 }
 
