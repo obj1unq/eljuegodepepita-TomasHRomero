@@ -1,0 +1,48 @@
+import pepita.*
+import comidas.*
+// import niveles.*
+import extras.*
+import direcciones.*
+import wollok.game.*
+
+program PepitaGame {
+	game.title("Pepita")
+	game.height(10)
+	game.width(10)
+	game.boardGround("fondo2.jpg")
+
+//    keyboard.c().onPressDo({ pepita.comer(game.uniqueCollider(pepita)) }) 
+    
+    keyboard.up().onPressDo({ pepita.mover(arriba) })
+    keyboard.down().onPressDo({ pepita.mover(abajo) })
+    keyboard.right().onPressDo({ pepita.mover(derecha) })
+    keyboard.left().onPressDo({ pepita.mover(izquierda) })
+    
+    game.onTick(800, "gravedad", { pepita.caer() })
+    game.onCollideDo(pepita, { comida => pepita.comer(comida) })
+    game.onCollideDo(pepita, { silvestre => pepita.morir() })
+    game.onCollideDo(pepita, { nido => pepita.ganar() })
+
+  	game.addVisualCharacter(pepita)
+  	game.addVisual(silvestre)
+    game.addVisual(manzana)
+    game.addVisual(alpiste)
+    game.addVisual(nido)
+	game.start()
+}
+
+/*
+object nivel1 {
+    method init() {
+        pepita.init()
+        game.clear()
+        
+        keyboard.x().onPressDo({ self.init() })
+    
+
+        game.onCollideDo(pepita, { comida => pepita.comer(comida) })
+        game.onCollideDo(silvestre, { comida => pepita.morir() })        
+
+    }
+}
+*/
