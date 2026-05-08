@@ -11,7 +11,7 @@ object pepita {
 	method image() = self.estado()
 
 	method estado() {
-		return 	if ( self.atrapada() || self.cansada() ) 
+		return 	if ( self.atrapada() || self.sinEnergía() ) 
 					"pepita-gris.png"
 				else 
 					"pepita.png"
@@ -35,10 +35,24 @@ object pepita {
 	}
 
 	method mover(dirección) {
-		position = dirección.siguiente( position )
+
+		if ( not self.sinEnergía() ) {
+
+			const nuevaPosicion =
+				dirección.siguiente(position)
+
+			const distancia =
+				position.distance(nuevaPosicion)
+
+			self.volar(distancia)
+
+			position = nuevaPosicion
+		}
+		else
+		game.stop()
 	}
 
-	method cansada() = 	energia <= 0
+	method sinEnergía() = energia <= 0
 
 }
 
