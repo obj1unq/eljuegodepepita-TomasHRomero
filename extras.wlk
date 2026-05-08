@@ -9,4 +9,10 @@ object silvestre {
 
 }
 
+object nido {
 
+  method position() = game.at( 5, 8)
+
+  method image() = "nido.png"
+
+}

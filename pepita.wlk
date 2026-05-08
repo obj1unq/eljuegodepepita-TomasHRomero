@@ -57,8 +57,13 @@ object pepita {
 	}
 
 	method morir() {
-		game.stop()			
-	
+		game.say(self, "PERDÍ")
+		game.onTick(5000, "FIN DEL JUEGO", { game.stop() } )			
+	}
+
+	method ganar() {
+		game.say(self, "GANÉ")
+		game.onTick(5000, "FIN DEL JUEGO", { game.stop() } )
 	}
 }
 

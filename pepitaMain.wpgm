@@ -21,12 +21,13 @@ program PepitaGame {
     game.onTick(800, "gravedad", { pepita.caer() })
     game.onCollideDo(pepita, { comida => pepita.comer(comida) })
     game.onCollideDo(pepita, { silvestre => pepita.morir() })
-
+    game.onCollideDo(pepita, { nido => pepita.ganar() })
 
   	game.addVisualCharacter(pepita)
   	game.addVisual(silvestre)
     game.addVisual(manzana)
     game.addVisual(alpiste)
+    game.addVisual(nido)
 	game.start()
 }
 
