@@ -2,6 +2,7 @@ import pepita.*
 import comidas.*
 // import niveles.*
 import extras.*
+import direcciones.*
 import wollok.game.*
 
 program PepitaGame {
@@ -12,7 +13,10 @@ program PepitaGame {
 
     keyboard.c().onPressDo({ pepita.comer(game.uniqueCollider(pepita)) })
     
-
+    keyboard.up().onPressDo({ pepita.mover(arriba) })
+    keyboard.down().onPressDo({ pepita.mover(abajo) })
+    keyboard.right().onPressDo({ pepita.mover(derecha) })
+    keyboard.left().onPressDo({ pepita.mover(izquierda) })
     
   	game.addVisualCharacter(pepita)
   	game.addVisual(silvestre)
@@ -20,16 +24,12 @@ program PepitaGame {
     game.addVisual(alpiste)
 	game.start()
 }
+
 /*
 object nivel1 {
     method init() {
         pepita.init()
         game.clear()
-        
-        keyboard.up().onPressDo({ pepita.mover(arriba) })
-        keyboard.down().onPressDo({ pepita.mover(abajo) })
-        keyboard.right().onPressDo({ pepita.mover(derecha) })
-        keyboard.left().onPressDo({ pepita.mover(izquierda) })
         
         keyboard.x().onPressDo({ self.init() })
         
@@ -39,9 +39,7 @@ object nivel1 {
         game.onCollideDo(silvestre, { comida => pepita.morir() })
         game.onTick(1000, "gravedad", {     })
         
-        game.addVisual(silvestre)
-        game.addVisual(pepita)
-        game.addVisual(manzana)
+
     }
 }
 */

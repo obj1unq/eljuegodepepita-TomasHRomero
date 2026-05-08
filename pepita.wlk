@@ -1,5 +1,6 @@
 import wollok.game.*
 import extras.*
+import direcciones.*
 
 object pepita {
 
@@ -29,6 +30,10 @@ object pepita {
 	
 	method energia() {
 		return energia
+	}
+
+	method mover(dirección) {
+		position = dirección.siguiente( position )
 	}
 
 }
